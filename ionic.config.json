@@ -1,0 +1,7 @@
+{
+  "name": "Meu número",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
