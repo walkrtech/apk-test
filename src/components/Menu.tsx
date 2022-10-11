@@ -1,17 +1,7 @@
-import {
-  IonContent,
-  IonIcon,
-  IonItem,
-  IonLabel,
-  IonList,
-  IonListHeader,
-  IonMenu,
-  IonMenuToggle,
-  IonNote,
-} from '@ionic/react';
+import { IonContent, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonMenu, IonMenuToggle, IonNote, } from '@ionic/react';
 
 import { useLocation } from 'react-router-dom';
-import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp } from 'ionicons/icons';
+import { alertCircleOutline, barChartOutline, heartSharp, hourglassOutline, keyOutline, logOutOutline, personOutline, sendOutline, walletOutline, } from 'ionicons/icons';
 import './Menu.css';
 
 interface AppPage {
@@ -23,44 +13,58 @@ interface AppPage {
 
 const appPages: AppPage[] = [
   {
-    title: 'Inbox',
-    url: '/page/Inbox',
-    iosIcon: mailOutline,
-    mdIcon: mailSharp
-  },
-  {
-    title: 'Outbox',
-    url: '/page/Outbox',
-    iosIcon: paperPlaneOutline,
-    mdIcon: paperPlaneSharp
-  },
-  {
-    title: 'Favorites',
-    url: '/page/Favorites',
-    iosIcon: heartOutline,
+    title: 'Seu número',
+    url: '/page/Number',
+    iosIcon: heartSharp,
     mdIcon: heartSharp
   },
   {
-    title: 'Archived',
-    url: '/page/Archived',
-    iosIcon: archiveOutline,
-    mdIcon: archiveSharp
+    title: 'Linha do tempo',
+    url: '/page/Timestamp',
+    iosIcon: hourglassOutline,
+    mdIcon: hourglassOutline
   },
   {
-    title: 'Trash',
-    url: '/page/Trash',
-    iosIcon: trashOutline,
-    mdIcon: trashSharp
+    title: 'Independência Financeira',
+    url: '/page/IF',
+    iosIcon: keyOutline,
+    mdIcon: keyOutline
   },
   {
-    title: 'Spam',
+    title: 'Gestão de Riscos',
+    url: '/page/risk-management',
+    iosIcon: alertCircleOutline,
+    mdIcon: alertCircleOutline
+  },
+  {
+    title: 'Carteira & Investimentos',
+    url: '/page/investiments',
+    iosIcon: walletOutline,
+    mdIcon: walletOutline
+  },
+  {
+    title: 'Destino da Renda',
     url: '/page/Spam',
-    iosIcon: warningOutline,
-    mdIcon: warningSharp
-  }
+    iosIcon: sendOutline,
+    mdIcon: sendOutline
+  },
+  {
+    title: 'Meu progresso',
+    url: '/page/progress',
+    iosIcon: barChartOutline,
+    mdIcon: barChartOutline
+  },
 ];
 
-const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+const labels = [
+  {
+    title: 'Meu perfil',
+    icon: personOutline
+  }, {
+    title: 'Sair',
+    icon: logOutOutline
+  }
+];
 
 const Menu: React.FC = () => {
   const location = useLocation();
@@ -69,8 +73,8 @@ const Menu: React.FC = () => {
     <IonMenu contentId="main" type="overlay">
       <IonContent>
         <IonList id="inbox-list">
-          <IonListHeader>Inbox</IonListHeader>
-          <IonNote>hi@ionicframework.com</IonNote>
+          <IonListHeader>Cake Invest</IonListHeader>
+          <IonNote>walkr.app</IonNote>
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>
@@ -84,11 +88,10 @@ const Menu: React.FC = () => {
         </IonList>
 
         <IonList id="labels-list">
-          <IonListHeader>Labels</IonListHeader>
           {labels.map((label, index) => (
             <IonItem lines="none" key={index}>
-              <IonIcon slot="start" icon={bookmarkOutline} />
-              <IonLabel>{label}</IonLabel>
+              <IonIcon slot="start" icon={label.icon} />
+              <IonLabel>{label.title}</IonLabel>
             </IonItem>
           ))}
         </IonList>

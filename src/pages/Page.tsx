@@ -10,18 +10,18 @@ const Page: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
-          <IonButtons slot="start">
+        <IonToolbar className='pb-2'>
+          <IonButtons slot="start" className='mt-3'>
             <IonMenuButton />
           </IonButtons>
-          <IonTitle>{name}</IonTitle>
+          <IonTitle className='mt-3'>{name == 'number' ? 'Meu número' : name}</IonTitle>
         </IonToolbar>
       </IonHeader>
 
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">{name}</IonTitle>
+            <IonTitle size="large">{'name'}</IonTitle>
           </IonToolbar>
         </IonHeader>
         <ExploreContainer name={name} />
