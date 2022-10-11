@@ -14,7 +14,7 @@ const Page: React.FC = () => {
           <IonButtons slot="start" className='mt-3'>
             <IonMenuButton />
           </IonButtons>
-          <IonTitle className='mt-3'>{name == 'number' ? 'Meu número' : name}</IonTitle>
+          <IonTitle className='mt-3'>{name === 'number' ? 'Meu número' : name}</IonTitle>
         </IonToolbar>
       </IonHeader>
 
